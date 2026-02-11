@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Website 3D Printer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-content">
+    <img src="images/logo.png" alt="Logo Sekolah" class="logo">
+
+    <div class="header-text">
+      <h1>KEMENTERIAN PENDIDIKAN</h1>
+      <p>PEJABAT PENDIDIKAN DAERAH BALING</p>
+    </div>
+
+   <!-- TARIKH & HARI -->
+  <div class="header-date" id="headerDate"></div>
+</div>
+</header>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
+  <ul>
+    <li>
+      <a href="#" onclick="showSection('home'); return false;">Utama</a>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" onclick="return false;">Pengenalan ▾</a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#" onclick="showSection('sejarah'); return false;">Sejarah</a>
+        </li>
+        <li>
+          <a href="#" onclick="showSection('pendidikan'); return false;">
+            3D Dalam Pendidikan
+          </a>
+        </li>
+        <li>
+      <a href="#" onclick="showSection('chatbot-info'); return false;">
+        Apa Itu Chatbot
+      </a>
+    </li>
+  </ul>
+</li>
+
+    <li>
+      <a href="#" onclick="showSection('gallery'); return false;">Galeri</a>
+    </li>
+
+<!-- ===== TUTORIAL DENGAN SUB MENU ===== -->
+<li class="dropdown">
+  <a href="#"
+     onclick="return false;"
+     aria-haspopup="true"
+     aria-expanded="false">
+     Tutorial ▾
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#" onclick="showSection('tutorial'); return false;">
+        Tutorial Bertulis
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('video'); return false;">
+        Video Tutorial
+      </a>
+    </li>
+  </ul>
+</li>
+  
+<li class="dropdown">
+  <a href="#" onclick="return false;">Filament ▾</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#" onclick="showSection('filament-intro'); return false;">
+        Pengenalan Filament
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-abs'); return false;">
+        Filament ABS
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-pla'); return false;">
+        Keluarga PLA
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-silk'); return false;">
+        Silk PLA
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-matte'); return false;">
+        Matte PLA
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-tpu'); return false;">
+        Filament Fleksibel (TPU)
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('filament-petg'); return false;">
+        Keluarga PETG
+      </a>
+    </li>
+  </ul>
+</li>
+
+
+  <li>
+  <a href="#" onclick="showSection('keselamatan'); return false;">
+    Keselamatan
+  </a>
+</li>
+
+<li class="dropdown">
+  <a href="#" onclick="return false;">Dokumen Makmal 3D ▾</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#" onclick="showSection('jadual-keselamatan'); return false;">
+        📋 Jadual Keselamatan
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('poster-makmal'); return false;">
+        🖼️ Poster Makmal
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('checklist-cetak'); return false;">
+        ✅ Checklist Sebelum Cetak
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li>
+  <a href="#" onclick="showSection('rekod-pdp'); return false;">
+    Rekod PdP
+  </a>
+</li>
+
+    <!-- ===== MODEL 3D SEDIA CETAK ===== -->
+<li class="dropdown">
+  <a href="#" onclick="return false;">Model 3D ▾</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="https://www.crealitycloud.com/model-category/3d-print-foryou"
+         target="_blank">
+        Creality Cloud
+      </a>
+    </li>
+    <li>
+      <a href="https://www.printables.com/model"
+         target="_blank">
+        Printables
+      </a>
+    </li>
+    <li>
+      <a href="https://makerworld.com/en/3d-models"
+         target="_blank">
+        MakerWorld
+      </a>
+    </li>
+  </ul>
+</li>
+
+    <li>
+      <a href="#" onclick="showSection('contact'); return false;">Hubungi</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+<!-- ================= FILAMENT : PENGENALAN ================= -->
+<section id="filament-intro" class="section light">
+  <h2>Pengenalan Filament 3D Printer</h2>
+
+  <p>
+    Filament ialah bahan utama yang digunakan oleh pencetak 3D
+    untuk menghasilkan objek. Filament dicairkan di dalam nozzle
+    dan dibentuk lapisan demi lapisan sehingga menjadi model
+    tiga dimensi.
+  </p>
+
+  <p>
+    Setiap jenis filament mempunyai ciri fizikal, suhu cetakan
+    dan tahap keselamatan yang berbeza. Oleh itu, pemilihan
+    filament yang betul amat penting terutamanya dalam
+    persekitaran sekolah.
+  </p>
+
+  <h3>🧵 Jenis Filament Utama</h3>
+  <ul>
+    <li><strong>PLA</strong> – Paling sesuai untuk sekolah, mudah dicetak dan selamat</li>
+    <li><strong>ABS</strong> – Lebih kuat tetapi berbau dan memerlukan pengudaraan baik</li>
+    <li><strong>PETG</strong> – Kuat, sedikit fleksibel dan kurang bau berbanding ABS</li>
+    <li><strong>TPU</strong> – Fleksibel dan lembut, sesuai untuk objek boleh lentur</li>
+  </ul>
+
+  <h3>🏫 Cadangan untuk Sekolah</h3>
+  <p>
+    Filament <strong>PLA</strong> adalah pilihan terbaik untuk
+    kegunaan PdP kerana ia mudah dikendalikan, tidak berbau kuat
+    dan lebih selamat untuk murid.
+  </p>
+
+  <p>
+    Untuk projek khas seperti objek fleksibel atau tahan air,
+    guru boleh memperkenalkan filament lain seperti
+    <strong>TPU</strong> atau <strong>PETG</strong> dengan
+    pemantauan yang sesuai.
+  </p>
+</section>
+
+<!-- ================= APA ITU CHATBOT ================= -->
+<section id="chatbot-info" class="section light">
+
+  <h2>🤖 Apa Itu Chatbot?</h2>
+
+  <p>
+    Chatbot ialah sistem pintar yang boleh berinteraksi
+    dengan pengguna melalui teks atau suara secara automatik.
+    Dalam konteks pendidikan, chatbot membantu murid dan guru
+    mendapatkan maklumat dengan lebih cepat dan mudah.
+  </p>
+
+  <h3>🎯 Kegunaan Chatbot Dalam Pendidikan</h3>
+  <ul>
+    <li>Membantu murid mendapatkan jawapan segera</li>
+    <li>Memberi panduan pembelajaran kendiri</li>
+    <li>Menyokong pembelajaran digital & AI</li>
+    <li>Mengurangkan beban tugas guru</li>
+  </ul>
+
+  <h3>📺 Video Penerangan Chatbot</h3>
+
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/I2BUv1_X92M?si=4mfQgqi8QARnVeQR"
+      title="Apa Itu Chatbot?"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+    <p class="video-title">
+    Video: Pengenalan Chatbot & Kegunaannya
+  </p>
+
+  <div class="chatbot-cta">
+  <span class="cta-icon">👉</span>
+  <div class="cta-text">
+    <strong>Cuba Chatbot Pintar</strong><br>
+    Klik ikon chatbot di <u>sebelah kanan bawah</u> untuk bertanya
+    tentang 3D Printer, filament dan keselamatan.
+  </div>
+</div>
+
+</section>
+
+<!-- ================= FILAMENT : KELUARGA PLA ================= -->
+<section id="filament-pla" class="section light">
+  <h2>Keluarga PLA</h2>
+
+  <p>
+    PLA (Polylactic Acid) ialah filament paling popular
+    dan paling sesuai untuk kegunaan sekolah kerana
+    mudah dicetak dan selamat.
+  </p>
+
+  <h3>🧵 Jenis-jenis PLA</h3>
+  <ul>
+    <li><strong>PLA Standard</strong> – mudah, sesuai untuk pemula</li>
+    <li><strong>Silk PLA</strong> – berkilat, sesuai pameran</li>
+    <li><strong>Matte PLA</strong> – kemasan kusam, nampak premium</li>
+    <li><strong>PLA+</strong> – lebih kuat dari PLA biasa</li>
+    <li><strong>Eco / Easy PLA</strong> – mudah cetak & jimat tenaga</li>
+  </ul>
+
+  <h3>⚙️ Tetapan Asas PLA</h3>
+  <ul>
+    <li>Nozzle: 190°C – 220°C</li>
+    <li>Bed: 50°C – 60°C</li>
+    <li>Cooling Fan: ON</li>
+    <li>Nozzle Size: 0.4mm</li>
+  </ul>
+</section>
+
+<!-- ================= FILAMENT : SILK PLA ================= -->
+<section id="filament-silk" class="section light">
+
+  <h2>Silk PLA (Filament Berkilau)</h2>
+
+  <p>
+    <strong>Silk PLA</strong> ialah variasi daripada PLA yang direka
+    untuk menghasilkan permukaan cetakan yang <em>berkilau seperti sutera</em>.
+    Ia sangat sesuai untuk produk hiasan dan model pameran.
+  </p>
+
+  <h3>✨ Ciri Utama Silk PLA</h3>
+  <ul>
+    <li>Permukaan berkilau dan licin</li>
+    <li>Warna kelihatan lebih menarik & premium</li>
+    <li>Sesuai untuk model hiasan dan hadiah</li>
+  </ul>
+
+  <h3>✅ Kelebihan</h3>
+  <ul>
+    <li>Hasil cetakan cantik tanpa perlu cat</li>
+    <li>Warna gradient & metalik lebih menyerlah</li>
+    <li>Mudah dicetak seperti PLA biasa</li>
+  </ul>
+
+  <h3>⚠️ Kekurangan</h3>
+  <ul>
+    <li>Lebih rapuh berbanding PLA standard</li>
+    <li>Tidak sesuai untuk cetakan laju</li>
+    <li>Nozzle lebih mudah tersumbat jika tetapan salah</li>
+  </ul>
+
+  <h3>🛠️ Tetapan Cetakan Disyorkan</h3>
+  <ul>
+    <li><strong>Nozzle:</strong> 200°C – 230°C</li>
+    <li><strong>Kelajuan cetakan:</strong> 20 – 40 mm/s</li>
+    <li><strong>Cooling Fan:</strong> ON</li>
+    <li><strong>Saiz Nozzle:</strong> ≥ 0.4 mm</li>
+  </ul>
+
+  <h3>🏫 Kesesuaian di Sekolah</h3>
+  <p>
+    Silk PLA sesuai digunakan di sekolah untuk:
+  </p>
+  <ul>
+    <li>Projek pameran STEM</li>
+    <li>Hasil kerja murid (trofi, keychain, hiasan)</li>
+    <li>Aktiviti kreativiti dan inovasi</li>
+  </ul>
+
+  <p>
+    <strong>Nota:</strong> Disarankan digunakan di bawah pemantauan guru
+    dan elakkan cetakan terlalu laju bagi memastikan hasil terbaik.
+  </p>
+
+</section>
+
+<!-- ================= FILAMENT : MATTE PLA ================= -->
+<section id="filament-matte" class="section light">
+
+  <h2>Matte PLA (Permukaan Kusam / Profesional)</h2>
+
+  <p>
+    <strong>Matte PLA</strong> ialah filament PLA yang direka
+    untuk menghasilkan permukaan cetakan yang <em>kusam dan tidak berkilau</em>.
+    Ia memberikan rupa lebih profesional dan mengurangkan kesan lapisan (layer lines).
+  </p>
+
+  <h3>🎯 Ciri Utama Matte PLA</h3>
+  <ul>
+    <li>Permukaan kusam (anti-kilat)</li>
+    <li>Layer lines kurang kelihatan</li>
+    <li>Penampilan kemas & profesional</li>
+  </ul>
+
+  <h3>✅ Kelebihan</h3>
+  <ul>
+    <li>Sangat sesuai untuk model pendidikan & prototaip</li>
+    <li>Tidak memantulkan cahaya (mudah dilihat dalam kelas)</li>
+    <li>Mudah dicetak seperti PLA biasa</li>
+  </ul>
+
+  <h3>⚠️ Kekurangan</h3>
+  <ul>
+    <li>Kurang berkilau (tidak sesuai untuk hiasan mewah)</li>
+    <li>Biasanya sedikit lebih rapuh berbanding PLA standard</li>
+    <li>Warna kelihatan lebih lembut / pudar</li>
+  </ul>
+
+  <h3>🛠️ Tetapan Cetakan Disyorkan</h3>
+  <ul>
+    <li><strong>Nozzle:</strong> 190°C – 215°C</li>
+    <li><strong>Kelajuan cetakan:</strong> 30 – 60 mm/s</li>
+    <li><strong>Cooling Fan:</strong> ON</li>
+    <li><strong>Infill:</strong> 15% – 20% (cukup untuk PdP)</li>
+  </ul>
+
+  <h3>🏫 Kesesuaian di Sekolah</h3>
+  <ul>
+    <li>Model pembelajaran STEM & RBT</li>
+    <li>Prototaip reka bentuk murid</li>
+    <li>Model struktur (bangunan, komponen, bentuk geometri)</li>
+  </ul>
+
+  <p>
+    <strong>Cadangan:</strong> Matte PLA sangat sesuai digunakan
+    sebagai filament utama PdP kerana kemasan kemas dan mudah difahami murid.
+  </p>
+
+</section>
+
+<!-- ================= FILAMENT : TPU ================= -->
+<section id="filament-tpu" class="section light">
+
+  <h2>TPU (Filament Fleksibel)</h2>
+
+  <p>
+    <strong>TPU</strong> ialah filament 3D yang bersifat
+    <em>fleksibel, lembut dan kenyal</em> seperti getah.
+    Ia sesuai untuk menghasilkan objek yang perlu
+    dibengkokkan atau ditekan tanpa patah.
+  </p>
+
+  <h3>🎯 Ciri Utama TPU</h3>
+  <ul>
+    <li>Boleh dilentur dan ditekan</li>
+    <li>Tahan hentakan dan tidak mudah retak</li>
+    <li>Permukaan sedikit lembut & bergetah</li>
+  </ul>
+
+  <h3>✅ Kelebihan</h3>
+  <ul>
+    <li>Sesuai untuk objek fleksibel</li>
+    <li>Tahan lasak dan tahan hentakan</li>
+    <li>Tidak mudah pecah berbanding PLA</li>
+  </ul>
+
+  <h3>⚠️ Kekurangan</h3>
+  <ul>
+    <li>Lebih sukar dicetak berbanding PLA</li>
+    <li>Perlu kelajuan cetakan perlahan</li>
+    <li>Tidak sesuai untuk semua jenis pencetak</li>
+  </ul>
+
+  <h3>🛠️ Tetapan Cetakan Disyorkan</h3>
+  <ul>
+    <li><strong>Nozzle:</strong> 210°C – 230°C</li>
+    <li><strong>Kelajuan cetakan:</strong> 20 – 30 mm/s (perlahan)</li>
+    <li><strong>Retraction:</strong> Rendah atau OFF</li>
+    <li><strong>Cooling Fan:</strong> Sederhana</li>
+  </ul>
+
+  <h3>📦 Contoh Kegunaan</h3>
+  <ul>
+    <li>Sarung telefon (phone case)</li>
+    <li>Tapak getah / anti-gelincir</li>
+    <li>Gelang, penutup, klip fleksibel</li>
+  </ul>
+
+  <h3>🏫 Kesesuaian di Sekolah</h3>
+  <ul>
+    <li>Sesuai untuk demonstrasi lanjutan</li>
+    <li>Tidak digalakkan untuk murid beginner</li>
+    <li>Perlu bimbingan guru semasa mencetak</li>
+  </ul>
+
+  <p>
+    <strong>Cadangan:</strong> Gunakan TPU
+    hanya selepas murid mahir menggunakan PLA,
+    sebagai pendedahan kepada bahan industri sebenar.
+  </p>
+
+</section>
+
+<!-- ================= FILAMENT : PETG ================= -->
+<section id="filament-petg" class="section light">
+
+  <h2>PETG (Filament Kuat & Tahan Air)</h2>
+
+  <p>
+    <strong>PETG</strong> ialah filament yang kuat,
+    tahan lasak dan lebih fleksibel sedikit berbanding PLA.
+    Ia sesuai untuk objek yang digunakan dalam
+    persekitaran lembap atau luar bilik darjah.
+  </p>
+
+  <h3>🎯 Ciri Utama PETG</h3>
+  <ul>
+    <li>Kuat dan tahan hentakan</li>
+    <li>Tahan air dan kelembapan</li>
+    <li>Kurang berbau berbanding ABS</li>
+    <li>Sedikit fleksibel (tidak rapuh)</li>
+  </ul>
+
+  <h3>✅ Kelebihan</h3>
+  <ul>
+    <li>Sesuai untuk objek kegunaan harian</li>
+    <li>Tahan haba lebih baik daripada PLA</li>
+    <li>Kurang warp berbanding ABS</li>
+  </ul>
+
+  <h3>⚠️ Kekurangan</h3>
+  <ul>
+    <li>Permukaan mudah melekit (stringing)</li>
+    <li>Tidak sekeras PLA untuk detail halus</li>
+    <li>Perlu tetapan cetakan lebih teliti</li>
+  </ul>
+
+  <h3>🛠️ Tetapan Cetakan Disyorkan</h3>
+  <ul>
+    <li><strong>Nozzle:</strong> 220°C – 245°C</li>
+    <li><strong>Bed:</strong> 70°C – 85°C</li>
+    <li><strong>Kelajuan:</strong> 40 – 60 mm/s</li>
+    <li><strong>Cooling Fan:</strong> Rendah – sederhana</li>
+  </ul>
+
+  <h3>📦 Contoh Kegunaan</h3>
+  <ul>
+    <li>Bekas alatan & storan</li>
+    <li>Pas bunga / bekas air</li>
+    <li>Komponen luar bilik darjah</li>
+    <li>Produk tahan lasak</li>
+  </ul>
+
+  <h3>🏫 Kesesuaian di Sekolah</h3>
+  <ul>
+    <li>Sesuai untuk murid tahap pertengahan</li>
+    <li>Digunakan selepas murid mahir PLA</li>
+    <li>Perlu bimbingan guru semasa tetapan slicer</li>
+  </ul>
+
+  <p>
+    <strong>Cadangan:</strong> PETG sangat sesuai
+    untuk projek RBT dan STEM yang memerlukan
+    objek tahan lama dan praktikal.
+  </p>
+
+</section>
+
+<!-- ================= FILAMENT : ABS ================= -->
+<section id="filament-abs" class="section light">
+
+  <h2>ABS (Filament Industri & Tahan Haba)</h2>
+
+  <p>
+    <strong>ABS</strong> ialah filament yang kuat,
+    tahan haba dan hentakan.
+    Ia sering digunakan dalam industri
+    dan produk yang memerlukan ketahanan tinggi.
+  </p>
+
+  <h3>🎯 Ciri Utama ABS</h3>
+  <ul>
+    <li>Sangat kuat dan tahan hentakan</li>
+    <li>Tahan suhu tinggi</li>
+    <li>Boleh dirawat dengan acetone (kemasan licin)</li>
+    <li>Digunakan secara meluas dalam industri</li>
+  </ul>
+
+  <h3>✅ Kelebihan</h3>
+  <ul>
+    <li>Tahan haba lebih baik daripada PLA & PETG</li>
+    <li>Kurang rapuh</li>
+    <li>Sesuai untuk komponen mekanikal</li>
+  </ul>
+
+  <h3>⚠️ Kekurangan</h3>
+  <ul>
+    <li>Menghasilkan bau semasa cetakan</li>
+    <li>Mudah melengkung (warping)</li>
+    <li>Memerlukan mesin tertutup (enclosure)</li>
+  </ul>
+
+  <h3>🛠️ Tetapan Cetakan Disyorkan</h3>
+  <ul>
+    <li><strong>Nozzle:</strong> 220°C – 260°C</li>
+    <li><strong>Bed:</strong> 90°C – 110°C</li>
+    <li><strong>Kelajuan:</strong> 40 – 60 mm/s</li>
+    <li><strong>Cooling Fan:</strong> Rendah / Tutup</li>
+    <li><strong>Enclosure:</strong> Sangat disyorkan</li>
+  </ul>
+
+  <h3>📦 Contoh Kegunaan</h3>
+  <ul>
+    <li>Komponen mesin</li>
+    <li>Bahagian mekanikal</li>
+    <li>Produk industri</li>
+    <li>Alat tahan haba</li>
+  </ul>
+
+  <h3>🏫 Kesesuaian di Sekolah</h3>
+  <ul>
+    <li><strong>Tidak disyorkan</strong> untuk murid tanpa pengawasan</li>
+    <li>Sesuai untuk demonstrasi guru</li>
+    <li>Perlu pengudaraan yang baik</li>
+  </ul>
+
+  <p>
+    <strong>Nota Keselamatan:</strong>
+    ABS hanya sesuai digunakan oleh guru
+    atau murid lanjutan dengan pemantauan rapi
+    serta mesin yang mempunyai penutup.
+  </p>
+
+</section>
+
+<!-- ================= KESELAMATAN ================= -->
+<section id="keselamatan" class="section light">
+
+  <h2>Keselamatan Penggunaan 3D Printer</h2>
+
+  <p>
+    Keselamatan merupakan aspek paling penting semasa menggunakan
+    mesin pencetak 3D. Pengguna perlu mematuhi peraturan dan langkah
+    keselamatan bagi mengelakkan kecederaan dan kerosakan peralatan.
+  </p>
+
+  <h3>⚠️ Peraturan Keselamatan Asas</h3>
+  <ul>
+    <li>Jangan sentuh nozzle atau hotbed semasa mesin sedang beroperasi</li>
+    <li>Gunakan pencetak 3D di bawah pengawasan guru</li>
+    <li>Pastikan kawasan cetakan bersih dan kemas</li>
+    <li>Matikan mesin selepas selesai digunakan</li>
+  </ul>
+
+  <h3>🧤 Peralatan Perlindungan</h3>
+  <ul>
+    <li>Sarung tangan (jika perlu mengendalikan objek panas)</li>
+    <li>Cermin mata keselamatan</li>
+    <li>Gunakan alat pencungkil (scraper) dengan berhati-hati</li>
+  </ul>
+
+  <h3>🚫 Larangan</h3>
+  <ul>
+    <li>Dilarang bermain atau bergurau di sekitar mesin</li>
+    <li>Dilarang membuka penutup mesin tanpa kebenaran</li>
+    <li>Dilarang menukar tetapan mesin tanpa bimbingan</li>
+  </ul>
+
+  <h3>🧯 Tindakan Kecemasan</h3>
+  <ul>
+    <li>Tekan butang kecemasan atau matikan suis utama jika berlaku masalah</li>
+    <li>Laporkan segera kepada guru jika terdapat bau terbakar</li>
+    <li>Jangan cuba membaiki mesin sendiri</li>
+  </ul>
+
+  <hr style="margin:40px 0">
+
+  <h2>Infografik Filament & Tahap Keselamatan</h2>
+
+  <p>
+    Infografik ini menunjukkan tahap keselamatan
+    setiap jenis filament yang digunakan di sekolah.
+  </p>
+
+  <div class="infografik-grid">
+
+    <div class="info-card safe">
+      <h3>🧵 PLA</h3>
+      <p class="level">Tahap: Pemula</p>
+      <ul>
+        <li>✔️ Selamat untuk sekolah</li>
+        <li>✔️ Tidak berbau</li>
+        <li>✔️ Mudah dikendalikan</li>
+      </ul>
+      <p class="note">Digalakkan untuk PdP</p>
+    </div>
+
+    <div class="info-card safe">
+      <h3>✨ Silk / Matte PLA</h3>
+      <p class="level">Tahap: Pemula</p>
+      <ul>
+        <li>✔️ Estetika tinggi</li>
+        <li>✔️ Mudah dicetak</li>
+        <li>✔️ Sesuai pameran</li>
+      </ul>
+      <p class="note">Projek kreatif</p>
+    </div>
+
+    <div class="info-card warning">
+      <h3>🧽 TPU</h3>
+      <p class="level">Tahap: Pertengahan</p>
+      <ul>
+        <li>⚠️ Fleksibel</li>
+        <li>⚠️ Perlukan tetapan khas</li>
+      </ul>
+      <p class="note">Dengan bimbingan guru</p>
+    </div>
+
+    <div class="info-card warning">
+      <h3>💧 PETG</h3>
+      <p class="level">Tahap: Pertengahan</p>
+      <ul>
+        <li>⚠️ Lebih kuat dari PLA</li>
+        <li>✔️ Tahan air</li>
+      </ul>
+      <p class="note">Projek aplikasi sebenar</p>
+    </div>
+
+    <div class="info-card danger">
+      <h3>🔥 ABS</h3>
+      <p class="level">Tahap: Lanjutan</p>
+      <ul>
+        <li>❌ Berbau</li>
+        <li>❌ Suhu tinggi</li>
+        <li>❌ Perlu enclosure</li>
+      </ul>
+      <p class="note">Guru sahaja</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     KESELAMATAN – JADUAL / POSTER / CHECKLIST (LENGKAP)
+     ===================================================== -->
+
+<!-- ================= JADUAL KESELAMATAN ================= -->
+<section id="jadual-keselamatan" class="section light">
+
+  <h2>📋 Jadual Keselamatan Makmal 3D</h2>
+  <button class="print-btn" onclick="window.print()">
+  🖨️ Cetak Halaman Ini (A4)
+</button>
+
+
+  <p>
+    Jadual ini boleh dicetak bersaiz <strong>A4</strong> dan
+    dipamerkan di dalam makmal 3D Printer sebagai rujukan keselamatan.
+  </p>
+
+  <table class="safety-table">
+    <thead>
+      <tr>
+        <th>Perkara</th>
+        <th>Status</th>
+        <th>Catatan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pengawasan Guru</td>
+        <td>✔️</td>
+        <td>Sepanjang operasi</td>
+      </tr>
+      <tr>
+        <td>Cermin Mata Keselamatan</td>
+        <td>✔️</td>
+        <td>Semasa keluarkan objek</td>
+      </tr>
+      <tr>
+        <td>Sentuh Nozzle / Hotbed</td>
+        <td>❌</td>
+        <td>Dilarang</td>
+      </tr>
+      <tr>
+        <td>Filament PLA Sahaja</td>
+        <td>✔️</td>
+        <td>Untuk murid</td>
+      </tr>
+      <tr>
+        <td>Matikan Mesin Selepas Cetak</td>
+        <td>✔️</td>
+        <td>Wajib</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Cadangan:</strong> Cetak, laminate dan tampal berhampiran mesin.</p>
+
+</section>
+
+<!-- ================= POSTER MAKMAL ================= -->
+<section id="poster-makmal" class="section light">
+
+  <h2>🖼️ Poster Keselamatan Makmal 3D</h2>
+  
+
+  <p>
+    Poster ini sesuai dipamerkan di dinding makmal
+    bagi mengingatkan murid tentang peraturan asas penggunaan
+    pencetak 3D.
+  </p>
+
+  <div class="poster-box">
+    <h3>⚠️ PERATURAN MAKMAL 3D</h3>
+    <ul>
+      <li>👀 Sentiasa di bawah pengawasan guru</li>
+      <li>🔥 Jangan sentuh nozzle atau hotbed panas</li>
+      <li>🧤 Gunakan peralatan dengan betul</li>
+      <li>🧹 Pastikan kawasan kerja bersih</li>
+      <li>🔌 Matikan mesin selepas digunakan</li>
+      <li>🧵 Gunakan filament PLA sahaja (murid)</li>
+    </ul>
+  </div>
+
+  <p><strong>Cadangan:</strong> Cetak A3 dan tampal di makmal.</p>
+
+</section>
+
+<!-- ================= CHECKLIST SEBELUM CETAK ================= -->
+<section id="checklist-cetak" class="section light">
+
+  <h2>✅ Checklist Sebelum Cetakan 3D</h2>
+
+  <p>
+    Murid <strong>WAJIB</strong> melengkapkan semua checklist
+    sebelum memulakan cetakan 3D.
+  </p>
+
+  <form class="checklist-form" id="checklistForm">
+    <label><input type="checkbox"> Guru berada di dalam makmal</label>
+    <label><input type="checkbox"> Filament yang digunakan ialah PLA</label>
+    <label><input type="checkbox"> Fail G-Code telah disemak</label>
+    <label><input type="checkbox"> Tetapan suhu betul</label>
+    <label><input type="checkbox"> Nozzle & hotbed bersih</label>
+    <label><input type="checkbox"> Kawasan sekitar selamat</label>
+  </form>
+
+  <p id="checklistStatus" class="status-belum">
+    ❌ Checklist belum lengkap
+  </p>
+
+  <button onclick="resetChecklist()" class="reset-btn">
+    🔄 Reset Checklist
+  </button>
+
+</section>
+
+<!-- ================= REKOD PdP 3D PRINTER ================= -->
+<section id="rekod-pdp" class="section light">
+
+  <h2>📘 Rekod Penggunaan 3D Printer (PdP)</h2>
+
+  <p>
+    Bahagian ini <strong>WAJIB diisi</strong> sebelum cetakan dibuat.
+    Rekod ini boleh digunakan sebagai bukti PdP dan dokumentasi sekolah.
+  </p>
+
+  <form id="pdpForm" class="pdp-form">
+
+    <label>
+      👨‍🏫 Nama Guru
+      <input type="text" id="guru" required>
+    </label>
+
+    <label>
+      🧑‍🎓 Nama Murid / Kumpulan
+      <input type="text" id="murid" required>
+    </label>
+
+    <label>
+      🏫 Kelas / Tingkatan
+      <input type="text" id="kelas" required>
+    </label>
+
+    <label>
+      🧵 Jenis Filament
+      <select id="filament">
+        <option>PLA</option>
+        <option>Silk PLA</option>
+        <option>Matte PLA</option>
+        <option>TPU</option>
+        <option>PETG</option>
+        <option>ABS (Guru sahaja)</option>
+      </select>
+    </label>
+
+    <label>
+      🎯 Tujuan Cetakan
+      <input type="text" id="tujuan" placeholder="Contoh: Projek STEM / RBT">
+    </label>
+
+    <label>
+      📅 Tarikh
+      <input type="date" id="tarikh">
+    </label>
+
+    <button type="button" onclick="simpanRekod()" class="save-btn">
+      💾 Simpan Rekod PdP
+    </button>
+
+  </form>
+
+  <h3>📊 Log Rekod PdP</h3>
+
+  <table class="pdp-table">
+    <thead>
+      <tr>
+        <th>Tarikh</th>
+        <th>Guru</th>
+        <th>Murid</th>
+        <th>Kelas</th>
+        <th>Filament</th>
+        <th>Tujuan</th>
+      </tr>
+    </thead>
+    <tbody id="rekodTable"></tbody>
+  </table>
+
+  <button onclick="window.print()" class="print-btn">
+    🖨️ Cetak Rekod PdP
+  </button>
+
+</section>
+
+
+
+<!-- ================= HOME ================= -->
+<section id="home" class="section active">
+  <img src="images/selamat-datang.png" alt="Selamat Datang" class="selamat-datang animate-slide">
+
+  <p>
+    Portal ini dibangunkan sebagai medium pembelajaran dan rujukan Teknologi Percetakan 3D
+    untuk kegunaan guru dan pelajar sekolah. Portal ini menyokong PdP, STEM serta transformasi
+    digital pendidikan selaras dengan aspirasi Kementerian Pendidikan Malaysia.
+  </p>
+
+  <div class="objektif-portal">
+    <h3>Objektif Portal</h3>
+
+    <p class="objektif-intro">
+      Portal ini dibangunkan sebagai platform sokongan pembelajaran
+      bagi memperkenalkan dan memperkukuh kefahaman terhadap
+      teknologi pencetakan 3D di peringkat sekolah.
+    </p>
+
+    <div class="objective-grid">
+  <div class="objective-card">🎯 Pendedahan Awal Teknologi 3D</div>
+  <div class="objective-card">📚 Rujukan Mesra Guru & Murid</div>
+  <div class="objective-card">💡 Galakkan Kreativiti & Inovasi</div>
+  <div class="objective-card">🔧 Sokong Pembelajaran Projek</div>
+</div>
+
+
+  <div class="target-users">
+  <h3>Sesuai Untuk:</h3>
+  <ul>
+    <li>👩‍🏫 Guru STEM / RBT</li>
+    <li>🧑‍🎓 Murid sekolah rendah & menengah</li>
+    <li>🏫 Sekolah yang mempunyai 3D Printer</li>
+  </ul>
+</div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section light">
+  <h2>Apa Itu 3D Printer?</h2>
+  <p>
+    3D Printer ialah mesin yang mencetak objek tiga dimensi berdasarkan
+    model digital menggunakan bahan seperti PLA dan ABS.
+  </p>
+</section>
+
+<!-- ================= SEJARAH ================= -->
+<section id="sejarah" class="section light">
+  <h2>Sejarah Teknologi 3D Printing</h2>
+
+  <div class="sejarah-timeline">
+
+    <div class="sejarah-card">
+      <div class="sejarah-icon">🧠</div>
+      <div class="sejarah-year">1980-an</div>
+      <h3>Era Permulaan</h3>
+      <p>
+        Teknologi 3D Printing bermula dengan kaedah
+        Stereolithography (SLA) yang menggunakan cahaya UV
+        dan resin cecair.
+      </p>
+    </div>
+
+    <div class="sejarah-card">
+      <div class="sejarah-icon">🧵</div>
+      <div class="sejarah-year">1989</div>
+      <h3>Penciptaan FDM</h3>
+      <p>
+        Teknologi Fused Deposition Modeling (FDM) dicipta dan
+        menjadi asas pencetak 3D berfilamen yang digunakan di sekolah.
+      </p>
+    </div>
+
+    <div class="sejarah-card">
+      <div class="sejarah-icon">🏭</div>
+      <div class="sejarah-year">1990-an</div>
+      <h3>Zaman Industri</h3>
+      <p>
+        Pencetak 3D sangat mahal, besar dan hanya digunakan
+        oleh industri automotif dan aeroangkasa.
+      </p>
+    </div>
+
+    <div class="sejarah-card">
+      <div class="sejarah-icon">🌍</div>
+      <div class="sejarah-year">2005</div>
+      <h3>Revolusi RepRap</h3>
+      <p>
+        Projek RepRap menjadikan reka bentuk mesin open-source
+        dan menurunkan kos pencetak 3D secara drastik.
+      </p>
+    </div>
+
+    <div class="sejarah-card">
+      <div class="sejarah-icon">🚀</div>
+      <div class="sejarah-year">2010 – Kini</div>
+      <h3>Untuk Semua</h3>
+      <p>
+        Digunakan dalam pendidikan, perubatan, fesyen
+        dan pembinaan rumah menggunakan teknologi 3D.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= 3D DALAM PENDIDIKAN ================= -->
+<section id="pendidikan" class="section">
+  <h2>3D Printing Dalam Pendidikan</h2>
+
+  <img 
+    src="images/3d-dalam-pendidikan.jpg" 
+    alt="3D Printing Dalam Pendidikan" 
+    class="pendidikan-img">
+
+  <p>
+    Penggunaan teknologi 3D Printing dalam pendidikan menyokong
+    pelaksanaan PdP berasaskan STEM dan Pembelajaran Abad Ke-21.
+    Murid dapat membina model fizikal bagi memahami konsep abstrak
+    dengan lebih berkesan.
+  </p>
+
+  <ul>
+    <li>Meningkatkan kefahaman konsep</li>
+    <li>Menyokong pembelajaran berasaskan projek (PBL)</li>
+    <li>Menggalakkan kreativiti dan inovasi</li>
+    <li>Selari dengan transformasi digital pendidikan</li>
+  </ul>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="section">
+  <h2></h2>
+
+  <div class="gallery">
+
+  <!-- BENGKEL 3D -->
+<div class="card">
+  <img src="images/bengkel-3d.jpg"
+       alt="Bengkel 3D"
+       onclick="openLightbox(this)">
+  <p>Bengkel 3D</p>
+</div>
+
+  <!-- HOLDER TELEFON -->
+<div class="card">
+  <img src="images/holder-telefon.jpg"
+       alt="Holder Telefon 3D"
+       onclick="openLightbox(this)">
+  <p>Holder Telefon</p>
+</div>
+
+<!-- KEYCHAIN -->
+<div class="card">
+  <img src="images/keychain.jpg"
+       alt="Keychain 3D"
+       onclick="openLightbox(this)">
+  <p>Keychain</p>
+</div>
+
+
+</div>
+
+</section>
+
+<!-- ================= TUTORIAL BERTULIS ================= -->
+<section id="tutorial" class="section light">
+  <h2>Tutorial Bertulis: Proses Asas Percetakan 3D</h2>
+
+  <p>
+    Bahagian ini menerangkan langkah demi langkah proses asas
+    penggunaan pencetak 3D, bermula daripada mendapatkan model
+    sehingga proses mencetak objek menggunakan mesin 3D Printer.
+  </p>
+
+  <!-- ================= FASA 1 ================= -->
+  <h3 class="tutorial-fasa">Fasa 1: Mendapatkan Model 3D</h3>
+
+  <p>
+    Terdapat dua kaedah utama untuk mendapatkan model 3D
+    yang ingin dicetak:
+  </p>
+
+  <h4>Kaedah A: Muat Turun (Download)</h4>
+  <ul>
+    <li>Sesuai untuk pemula dan murid yang baru berkenalan dengan teknologi 3D Printer</li>
+    <li>Menggunakan fail reka bentuk yang telah dikongsi oleh komuniti global</li>
+    <li><strong>Laman web popular:</strong> Thingiverse, Printables, Thangs dan MakerWorld</li>
+    <li><strong>Kelebihan:</strong> Cepat, mudah dan menjimatkan masa</li>
+  </ul>
+
+  <h4>Kaedah B: Mereka Bentuk Sendiri (Design / CAD)</h4>
+  <ul>
+    <li>Sesuai untuk murid RBT, STEM dan projek inovasi</li>
+    <li>Murid menghasilkan reka bentuk berdasarkan idea sendiri</li>
+    <li><strong>Perisian yang disyorkan:</strong>
+      <ul>
+        <li>Tinkercad – mesra pengguna, percuma dan sesuai untuk sekolah (tersedia dalam DELIMa)</li>
+        <li>Fusion 360 / Onshape – untuk reka bentuk kejuruteraan yang lebih kompleks</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- ================= FASA 2 ================= -->
+  <h3 class="tutorial-fasa">Fasa 2: Menukar Format Fail (Eksport ke STL)</h3>
+
+  <p>
+    Pencetak 3D tidak dapat membaca fail reka bentuk secara langsung.
+    Oleh itu, fail tersebut perlu ditukar kepada format khas.
+  </p>
+
+  <ul>
+    <li><strong>Format STL (.stl)</strong> ialah format standard bagi percetakan 3D</li>
+    <li>Fail STL memecahkan bentuk objek kepada ribuan segitiga kecil (triangles)</li>
+    <li><strong>Tindakan:</strong> Klik butang <em>Export</em> dan pilih format STL dalam perisian reka bentuk</li>
+  </ul>
+
+  <!-- ================= FASA 3 ================= -->
+  <h3 class="tutorial-fasa">Fasa 3: Proses Slicing (Langkah Paling Penting)</h3>
+
+  <p>
+    Proses slicing ialah langkah di mana arahan teknikal
+    disediakan untuk mesin 3D Printer menggunakan perisian khas
+    yang dikenali sebagai <strong>Slicer</strong>.
+  </p>
+
+  <p><strong>Perisian slicer popular:</strong> Ultimaker Cura (percuma), Bambu Studio dan Creality Print.</p>
+
+  <h4>Tiga Tetapan Asas yang Perlu Difahami Murid</h4>
+
+  <ul>
+    <li>
+      <strong>Infill (Kepadatan)</strong><br>
+      Menentukan kepadatan bahagian dalam objek. Nilai 15% – 20% sudah
+      mencukupi untuk kebanyakan cetakan dan menjimatkan bahan.
+    </li>
+
+    <li>
+      <strong>Support (Sokongan)</strong><br>
+      Digunakan jika objek mempunyai bahagian tergantung.
+      Sokongan sementara akan dibina dan dibuang selepas cetakan siap.
+    </li>
+
+    <li>
+      <strong>Layer Height (Kualiti)</strong><br>
+      Ketebalan setiap lapisan cetakan.
+      <ul>
+        <li>0.2mm – Standard (cepat dan kualiti sederhana)</li>
+        <li>0.12mm – Halus (perlahan tetapi hasil lebih cantik)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- ================= FASA 4 ================= -->
+  <h3 class="tutorial-fasa">Fasa 4: Menghasilkan Fail G-Code</h3>
+
+  <p>
+    Setelah semua tetapan selesai, klik butang <strong>Slice</strong>.
+    Perisian slicer akan menjana fail khas untuk mesin 3D Printer.
+  </p>
+
+  <ul>
+    <li>Fail yang dihasilkan dikenali sebagai <strong>G-Code (.gcode)</strong></li>
+    <li>G-Code mengandungi arahan pergerakan, suhu dan kelajuan mesin</li>
+    <li>Simpan fail ke dalam Kad SD atau USB Drive</li>
+    <li>Masukkan media simpanan ke dalam mesin 3D Printer untuk memulakan cetakan</li>
+  </ul>
+</section>
+
+
+<!-- ================= VIDEO TUTORIAL ================= -->
+<section id="video" class="section light">
+  <h2>Video Tutorial 3D Printer</h2>
+
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/g3v-VRGljE0"
+      title="Video Tutorial 3D Printer – Asas"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <p class="video-title">Video 1: Langkah Asas Penggunaan 3D Printer</p>
+
+  <div class="video-container video-spacing">
+    <iframe
+      src="https://www.youtube.com/embed/o5qulsOgykg"
+      title="Video Tutorial 3D Printer – Keychain"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <p class="video-title">
+    Video 2: Cara Membuat Rekaan Keychain Nama 3D
+  </p>
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdOyy8xnPppznuPJyG-_AsTPk6bmkGeGqrBAK7JMnQAL9-g3A/viewform?embedded=true"
+    width="100%"
+    height="650"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Borang Hubungi Kami"
+    loading="lazy">
+    Loading…
+  </iframe>
+</section>
+
+
+</main>
+
+<!-- ================= FOOTER (BARU & WAJIB) ================= -->
+<footer>
+  <p>© 2026 EDUCATION BALING 3D PRINTER</p>
+  <p class="visitor-count">Jumlah lawatan portal: <span id="visitorCount">—</span></p>
+</footer>
+
+<!-- ================= CHATBOT FLOATING ================= -->
+<div class="chatbot-container">
+
+  <!-- BUTTON CHATBOT -->
+  <div class="chatbot-button" id="chatbotToggle">
+    <img src="images/chatbot.png" alt="Chatbot">
+  </div>
+
+    <!-- HINT CHATBOT -->
+  <span class="chatbot-hint">Perlu bantuan?</span>
+
+  <!-- CHATBOT BOX -->
+  <div class="chatbot-box" id="chatbotBox">
+
+    <!-- HEADER CHATBOT -->
+    <div class="chatbot-header">
+      <span>🤖 Chatbot 3D Printer</span>
+      <button class="chatbot-close" id="chatbotClose">✕</button>
+    </div>
+
+    <!-- IFRAME CHATBOT -->
+    <iframe
+      src="https://app.edcafe.ai/chatbots/695c850488fa84267a888496"
+      title="Chatbot 3D Printer"
+      allow="microphone">
+    </iframe>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+  <!-- MOBILE MENU -->
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

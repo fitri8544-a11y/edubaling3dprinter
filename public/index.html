@@ -1275,5 +1275,19 @@
       document.querySelector("nav ul").classList.toggle("show");
     }
   </script>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="/assets/audio/lagu-edubaling.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  // Fix autoplay browser restriction
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+</script>
+
 </body>
 </html>

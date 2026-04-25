@@ -1,4 +1,4 @@
-name: Deploy 3D Printer to Firebase
+name: Deploy 3D Printer
 
 on:
   push:

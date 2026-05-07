@@ -34,7 +34,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* ===== ADVANCED 3D TECH BACKGROUND ===== */
+/* ===== FINAL ELITE BACKGROUND ===== */
 
 body {
   margin: 0;
@@ -43,30 +43,43 @@ body {
   overflow-x: hidden;
 
   background:
-    radial-gradient(circle at 50% 80%, rgba(0,255,255,0.15), transparent 60%),
-    linear-gradient(180deg, #071a22 0%, #0c2a34 50%, #06141b 100%);
+    radial-gradient(circle at center, rgba(0,255,255,0.12), transparent 60%),
+    linear-gradient(180deg, #04161c 0%, #06242d 40%, #021015 100%);
 }
 
-/* Blueprint Overlay */
+/* Background Layer System */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
   background:
-    url("assets/3d-blueprint-left.png") left center no-repeat,
-    url("assets/3d-cube-right.png") right center no-repeat,
-    linear-gradient(rgba(0,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px),
+    url("assets/3d-blueprint-left.png"),
+    url("assets/3d-cube-right.png");
+
+  background-repeat:
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat;
 
   background-size:
-    400px auto,
-    300px auto,
     120px 120px,
-    120px 120px;
+    120px 120px,
+    500px auto,
+    380px auto;
 
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: -1;
+  background-position:
+    0 0,
+    0 0,
+    left 15%,
+    right 25%;
+
+  opacity: 0.35;   /* blend lembut */
 }
 
 .hero-upgrade {
@@ -148,6 +161,11 @@ body::before {
   background: transparent;
   border: 1px solid #00e0ff;
   color: white;
+}
+
+.hero-center {
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== INTRO ===== */

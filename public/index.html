@@ -146,9 +146,10 @@ body::before {
 
 .objective-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;          /* dari 20px -> 15px */
-  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr);  /* paksa 4 kolum */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 .objective-card {
@@ -347,6 +348,27 @@ body::before {
 .target-box:hover {
   box-shadow: 0 0 20px #00e0ff;
   transform: scale(1.02);
+}
+
+@media (max-width: 1000px) {
+  .objective-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .objective-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-target {
+  margin-bottom: 20px;  /* kecilkan jarak */
+}
+
+footer {
+  margin-top: 10px;     /* rapatkan footer */
+  padding-top: 20px;
 }
 </style>
 

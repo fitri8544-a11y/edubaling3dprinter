@@ -34,15 +34,27 @@
   100% { background-position: 0% 50%; }
 }
 
-/* 3D blueprint grid overlay */
+/* ===== PREMIUM AI BACKGROUND ===== */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  background: radial-gradient(circle at top left, #0f2027, #1a3a45 40%, #203a43 70%);
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* Large Blueprint Grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+  background-size: 120px 120px;  /* BESARKAN GRID */
+  pointer-events: none;
   z-index: -1;
 }
 
@@ -296,14 +308,6 @@ body::before {
 
 /* ===== OBJEKTIF GRID ===== */
 
-.objective-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-  margin: 20px auto;
-  max-width: 1100px;
-}
-
 .objective-card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(0,255,255,0.3);
@@ -372,15 +376,6 @@ footer {
 }
 
 /* ===== FORCE OBJECTIVE SEBARIS ===== */
-
-#home .objective-grid {
-  display: flex !important;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-  flex-wrap: nowrap; /* paksa satu baris */
-}
 
 #home .objective-card {
   flex: 1;

@@ -520,10 +520,20 @@ section.active {
       <a href="#" onclick="showSection('contact'); return false;">Hubungi</a>
     </li>
 
-<li>
-  <a href="#" onclick="showSection('kuiz'); return false;">
-    Uji Kefahaman
-  </a>
+<li class="dropdown">
+  <a href="#" onclick="return false;">Modul Interaktif ▾</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="#" onclick="showSection('kuiz'); return false;">
+        🧠 Kuiz 3D Printer
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="showSection('game'); return false;">
+        🎮 Game 3D Challenge
+      </a>
+    </li>
+  </ul>
 </li>
 
 </ul>
@@ -1681,6 +1691,11 @@ section.active {
 
   <div id="quizResult" class="quiz-result"></div>
 
+</section>
+
+<section id="game" class="section">
+  <h2>🎮 Game 3D Challenge</h2>
+  <p>Game interaktif akan ditambah tidak lama lagi.</p>
 </section>
 
 </main>

@@ -1256,26 +1256,32 @@ section.active {
   <div class="objective-grid">
 
     <div class="objective-card">
-      🎯
+      <div class="icon">🎯</div>
       <h3>Pendedahan Awal<br>Teknologi 3D</h3>
+      <p>Memberi kefahaman asas teknologi percetakan 3D kepada murid.</p>
     </div>
 
     <div class="objective-card">
-      📚
+      <div class="icon">📚</div>
       <h3>Rujukan Mesra<br>Guru & Murid</h3>
+      <p>Platform sokongan PdP berasaskan STEM dan RBT.</p>
     </div>
 
     <div class="objective-card">
-      💡
+      <div class="icon">💡</div>
       <h3>Galakkan Kreativiti &<br>Inovasi</h3>
+      <p>Menyokong pembelajaran berasaskan projek dan idea inovatif.</p>
     </div>
 
     <div class="objective-card">
-      🔧
+      <div class="icon">🔧</div>
       <h3>Sokong Pembelajaran<br>Projek</h3>
+      <p>Membantu murid membina model sebenar daripada idea digital.</p>
     </div>
 
   </div>
+
+</div>
 
 
 <!-- ================= SESUAI UNTUK ================= -->
@@ -1636,18 +1642,18 @@ section.active {
 <script>
 function showSection(sectionId) {
 
-  // Buang active dari semua section
+  // Sembunyikan semua section dalam main sahaja
   document.querySelectorAll("main section").forEach(sec => {
     sec.classList.remove("active");
   });
 
-  // Aktifkan section dipilih
+  // Paparkan section dipilih
   const activeSection = document.getElementById(sectionId);
   if (activeSection) {
     activeSection.classList.add("active");
   }
 
-  // Scroll ke atas dengan stabil
+  // Scroll ke atas
   window.scrollTo(0, 0);
 }
 </script>

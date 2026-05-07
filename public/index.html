@@ -261,6 +261,14 @@ footer {
 footer {
   margin-top: 20px;
 }
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
 </style>
 
 <!-- ================= HEADER ================= -->
@@ -1599,5 +1607,26 @@ footer {
   }, { once: true });
 </script>
 
+<script>
+ function showSection(sectionId) {
+
+  // Buang active dari semua section
+  document.querySelectorAll("section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  // Tambah active pada section dipilih
+  const activeSection = document.getElementById(sectionId);
+  if (activeSection) {
+    activeSection.classList.add("active");
+  }
+
+  // Scroll ke atas setiap kali tukar menu
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+} 
+</script>
 </body>
 </html>

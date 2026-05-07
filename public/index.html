@@ -11,6 +11,72 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<style>
+ body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  /* Gradient AI style */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
+  color: #111;
+}
+
+/* subtle animated movement */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 3D blueprint grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+.hero-upgrade {
+  height: 80vh;
+  background: url("images/selamat-datang.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hero-upgrade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 20px cyan;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+</style>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
@@ -916,7 +982,12 @@
 
 <!-- ================= HOME ================= -->
 <section id="home" class="section active">
-  <img src="images/selamat-datang.png" alt="Selamat Datang" class="selamat-datang animate-slide">
+  <div class="hero-upgrade">
+  <div class="hero-content">
+    <h1>Selamat Datang ke Portal 3D Printer</h1>
+    <p>Platform Rujukan Teknologi Percetakan 3D untuk Guru & Pelajar</p>
+  </div>
+</div>
 
   <p>
     Portal ini dibangunkan sebagai medium pembelajaran dan rujukan Teknologi Percetakan 3D

@@ -172,10 +172,14 @@ body {
 .objective-card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(0,255,255,0.3);
-  padding: 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
+  padding: 35px 25px;   /* tambah besar */
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
   transition: 0.3s;
+  min-height: 180px;    /* tambah tinggi */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .objective-card:hover {
@@ -184,8 +188,8 @@ body {
 }
 
 .objective-card h3 {
-  margin-top: 15px;
-  font-size: 1rem;
+  margin-top: 18px;
+  font-size: 1.1rem;
 }
 
 
@@ -202,9 +206,22 @@ body {
 
 .target-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: 20px auto 0;
+}
+
+@media (max-width: 900px) {
+  .target-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .target-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .target-box {

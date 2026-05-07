@@ -21,7 +21,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* ===== FINAL CLEAN BACKGROUND ===== */
+/* ===== CLEAN HERO BACKGROUND ===== */
 
 body {
   margin: 0;
@@ -30,43 +30,8 @@ body {
   overflow-x: hidden;
 
   background:
-    radial-gradient(circle at 50% 40%, rgba(0,255,255,0.15), transparent 60%),
-    linear-gradient(180deg, #03141a 0%, #06232c 40%, #021015 100%);
-}
-
-/* Blueprint & Cube Layer */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-  background:
-    linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px),
-    url("assets/3d-blueprint-left.png"),
-    url("assets/3d-cube-right.png");
-
-  background-repeat:
-    repeat,
-    repeat,
-    no-repeat,
-    no-repeat;
-
-  background-size:
-    120px 120px,
-    120px 120px,
-    520px auto,
-    420px auto;
-
-  background-position:
-    0 0,
-    0 0,
-    left center,
-    right center;
-
-  opacity: 0.25;
+    radial-gradient(circle at center, rgba(0,255,255,0.15), transparent 60%),
+    linear-gradient(180deg, #03141a 0%, #06232c 50%, #021015 100%);
 }
 
 .hero-upgrade {

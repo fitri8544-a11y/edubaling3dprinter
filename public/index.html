@@ -34,26 +34,37 @@
   100% { background-position: 0% 50%; }
 }
 
-/* ===== PREMIUM AI BACKGROUND ===== */
+/* ===== ADVANCED 3D TECH BACKGROUND ===== */
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-
-  background: radial-gradient(circle at top left, #0f2027, #1a3a45 40%, #203a43 70%);
-  color: #111;
+  color: white;
   overflow-x: hidden;
+
+  background:
+    radial-gradient(circle at 50% 80%, rgba(0,255,255,0.15), transparent 60%),
+    linear-gradient(180deg, #071a22 0%, #0c2a34 50%, #06141b 100%);
 }
 
-/* Large Blueprint Grid */
+/* Blueprint Overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
-  background-size: 120px 120px;  /* BESARKAN GRID */
+  background:
+    url("assets/3d-blueprint-left.png") left center no-repeat,
+    url("assets/3d-cube-right.png") right center no-repeat,
+    linear-gradient(rgba(0,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.04) 1px, transparent 1px);
+
+  background-size:
+    400px auto,
+    300px auto,
+    120px 120px,
+    120px 120px;
+
+  opacity: 0.4;
   pointer-events: none;
   z-index: -1;
 }
@@ -192,10 +203,16 @@ body::before {
 /* ===== CENTER HERO ===== */
 
 .hero-center {
-  text-align: center;
-  min-height: 60vh;
   padding-top: 40px;
-  color: white;
+  padding-bottom: 20px;
+}
+
+#home {
+  padding-bottom: 0;
+}
+
+.section {
+  padding: 40px 0;   /* kecilkan global spacing */
 }
 
 /* Tajuk Glow */
@@ -435,6 +452,7 @@ footer {
 footer {
   margin-top: 0;
 }
+
 </style>
 
 <!-- ================= HEADER ================= -->

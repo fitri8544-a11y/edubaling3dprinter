@@ -9,6 +9,10 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <link rel="stylesheet" href="style.css">
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </head>
 <body>
 <style>
@@ -75,6 +79,105 @@ body::before {
 .hero-content p {
   font-size: 1.2rem;
   margin-top: 10px;
+}
+
+/* ===== HOME HERO PREMIUM ===== */
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  min-height: 75vh;
+  padding: 40px 0;
+  color: white;
+}
+
+.home-left h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 20px cyan;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  opacity: 0.9;
+}
+
+.hero-buttons button {
+  padding: 12px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #00e0ff;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px cyan;
+}
+
+.hero-buttons .secondary {
+  background: transparent;
+  border: 1px solid #00e0ff;
+  color: white;
+}
+
+/* ===== INTRO ===== */
+
+.home-intro {
+  margin-top: 50px;
+  color: white;
+  opacity: 0.9;
+}
+
+/* ===== OBJECTIVE ===== */
+
+.home-objectives {
+  margin-top: 60px;
+  text-align: center;
+  color: white;
+}
+
+.objective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.objective-card {
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* ===== TARGET ===== */
+
+.home-target {
+  margin-top: 60px;
+  text-align: center;
+  color: white;
+}
+
+.home-target ul {
+  list-style: none;
+  padding: 0;
+}
+
+.home-target li {
+  margin: 10px 0;
 }
 </style>
 
@@ -980,46 +1083,80 @@ body::before {
 
 
 
-<!-- ================= HOME ================= -->
+<!-- ================= HOME PREMIUM STEM ================= -->
 <section id="home" class="section active">
-  <div class="hero-upgrade">
-  <div class="hero-content">
-    <h1>Selamat Datang ke Portal 3D Printer</h1>
-    <p>Platform Rujukan Teknologi Percetakan 3D untuk Guru & Pelajar</p>
+
+  <div class="home-hero">
+
+    <!-- LEFT CONTENT -->
+    <div class="home-left">
+      <h1>Portal 3D Printer Pendidikan</h1>
+      <p class="hero-subtitle">
+        Platform Rujukan Teknologi Percetakan 3D
+        untuk Guru & Pelajar Sekolah
+      </p>
+
+      <div class="hero-buttons">
+        <button onclick="showSection('tutorial')">
+          📚 Mulakan Pembelajaran
+        </button>
+
+        <button onclick="showSection('filament-intro')" class="secondary">
+          🧵 Kenali Filament
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT (3D INTERACTIVE MODEL) -->
+    <div class="home-right">
+      <model-viewer
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+        auto-rotate
+        camera-controls
+        shadow-intensity="1"
+        exposure="1"
+        style="width:100%; height:420px;">
+      </model-viewer>
+    </div>
+
   </div>
-</div>
 
-  <p>
-    Portal ini dibangunkan sebagai medium pembelajaran dan rujukan Teknologi Percetakan 3D
-    untuk kegunaan guru dan pelajar sekolah. Portal ini menyokong PdP, STEM serta transformasi
-    digital pendidikan selaras dengan aspirasi Kementerian Pendidikan Malaysia.
-  </p>
-
-  <div class="objektif-portal">
-    <h3>Objektif Portal</h3>
-
-    <p class="objektif-intro">
-      Portal ini dibangunkan sebagai platform sokongan pembelajaran
-      bagi memperkenalkan dan memperkukuh kefahaman terhadap
-      teknologi pencetakan 3D di peringkat sekolah.
+  <!-- INTRO SECTION -->
+  <div class="home-intro">
+    <p>
+      Portal ini dibangunkan sebagai medium pembelajaran dan rujukan
+      Teknologi Percetakan 3D untuk kegunaan guru dan pelajar sekolah.
+      Portal ini menyokong PdP, STEM serta transformasi digital pendidikan
+      selaras dengan aspirasi Kementerian Pendidikan Malaysia.
     </p>
+  </div>
+
+  <!-- OBJEKTIF -->
+  <div class="home-objectives">
+
+    <h2>Objektif Portal</h2>
 
     <div class="objective-grid">
-  <div class="objective-card">🎯 Pendedahan Awal Teknologi 3D</div>
-  <div class="objective-card">📚 Rujukan Mesra Guru & Murid</div>
-  <div class="objective-card">💡 Galakkan Kreativiti & Inovasi</div>
-  <div class="objective-card">🔧 Sokong Pembelajaran Projek</div>
-</div>
+      <div class="objective-card">🎯 Pendedahan Awal Teknologi 3D</div>
+      <div class="objective-card">📚 Rujukan Mesra Guru & Murid</div>
+      <div class="objective-card">💡 Galakkan Kreativiti & Inovasi</div>
+      <div class="objective-card">🔧 Sokong Pembelajaran Projek</div>
+    </div>
 
+  </div>
 
-  <div class="target-users">
-  <h3>Sesuai Untuk:</h3>
-  <ul>
-    <li>👩‍🏫 Guru STEM / RBT</li>
-    <li>🧑‍🎓 Murid sekolah rendah & menengah</li>
-    <li>🏫 Sekolah yang mempunyai 3D Printer</li>
-  </ul>
-</div>
+  <!-- TARGET USER -->
+  <div class="home-target">
+
+    <h2>Sesuai Untuk</h2>
+
+    <ul>
+      <li>👩‍🏫 Guru STEM / RBT</li>
+      <li>🧑‍🎓 Murid Sekolah Rendah & Menengah</li>
+      <li>🏫 Sekolah yang mempunyai 3D Printer</li>
+    </ul>
+
+  </div>
 
 </section>
 

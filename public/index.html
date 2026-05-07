@@ -1201,7 +1201,7 @@ section.active {
 </section>
 
 <!-- ================= HOME FUTURISTIC CENTER ================= -->
-<section id="home" class="home-hero">
+<section id="home" class="home-hero active">
 
   <div class="hero-center">
 
@@ -1245,7 +1245,7 @@ section.active {
   Portal ini dibangunkan sebagai medium pembelajaran dan rujukan Teknologi Percetakan 3D
   untuk kegunaan guru dan pelajar sekolah. Portal ini menyokong PdP, STEM serta
   transformasi digital pendidikan selaras dengan aspirasi Kementerian Pendidikan Malaysia.
-
+</div>
 
 
 <!-- ================= OBJEKTIF PORTAL ================= -->
@@ -1634,24 +1634,21 @@ section.active {
 </script>
 
 <script>
- function showSection(sectionId) {
+function showSection(sectionId) {
 
-  // Buang active dari semua page
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
+  // Buang active dari semua section
+  document.querySelectorAll("main section").forEach(sec => {
+    sec.classList.remove("active");
   });
 
-  // Tambah active pada page dipilih
-  const activePage = document.getElementById(sectionId);
-  if (activePage) {
-    activePage.classList.add("active");
+  // Aktifkan section dipilih
+  const activeSection = document.getElementById(sectionId);
+  if (activeSection) {
+    activeSection.classList.add("active");
   }
 
-  // Reset scroll
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
+  // Scroll ke atas dengan stabil
+  window.scrollTo(0, 0);
 }
 </script>
 </body>

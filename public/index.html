@@ -370,6 +370,58 @@ footer {
   margin-top: 10px;     /* rapatkan footer */
   padding-top: 20px;
 }
+
+/* ===== FORCE OBJECTIVE SEBARIS ===== */
+
+#home .objective-grid {
+  display: flex !important;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  flex-wrap: nowrap; /* paksa satu baris */
+}
+
+#home .objective-card {
+  flex: 1;
+  min-height: 140px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1000px) {
+  #home .objective-grid {
+    flex-wrap: wrap;
+  }
+
+  #home .objective-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  #home .objective-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* ===== Rapatkan Footer ===== */
+
+#home {
+  padding-bottom: 20px !important;
+}
+
+.home-target {
+  margin-bottom: 10px !important;
+}
+
+footer {
+  margin-top: 0 !important;
+}
 </style>
 
 <!-- ================= HEADER ================= -->

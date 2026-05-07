@@ -19,22 +19,9 @@
  body {
   margin: 0;
   font-family: Arial, sans-serif;
-
-  /* Gradient AI style */
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  background-size: 200% 200%;
-  animation: gradientMove 12s ease infinite;
-  color: #111;
 }
 
-/* subtle animated movement */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ===== FINAL ELITE BACKGROUND ===== */
+/* ===== FINAL CLEAN BACKGROUND ===== */
 
 body {
   margin: 0;
@@ -43,17 +30,17 @@ body {
   overflow-x: hidden;
 
   background:
-    radial-gradient(circle at center, rgba(0,255,255,0.12), transparent 60%),
-    linear-gradient(180deg, #04161c 0%, #06242d 40%, #021015 100%);
+    radial-gradient(circle at 50% 40%, rgba(0,255,255,0.15), transparent 60%),
+    linear-gradient(180deg, #03141a 0%, #06232c 40%, #021015 100%);
 }
 
-/* Background Layer System */
+/* Blueprint & Cube Layer */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
   pointer-events: none;
+  z-index: -1;
 
   background:
     linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
@@ -70,16 +57,16 @@ body::before {
   background-size:
     120px 120px,
     120px 120px,
-    500px auto,
-    380px auto;
+    520px auto,
+    420px auto;
 
   background-position:
     0 0,
     0 0,
-    left 15%,
-    right 25%;
+    left center,
+    right center;
 
-  opacity: 0.35;   /* blend lembut */
+  opacity: 0.25;
 }
 
 .hero-upgrade {
@@ -371,7 +358,7 @@ body::before {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 15px;
   max-width: 1000px;
-  margin: 20px auto 60px;
+  margin: 20px auto 20px;
 }
 
 .target-box {

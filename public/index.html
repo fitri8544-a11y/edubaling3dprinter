@@ -311,6 +311,40 @@ section.active {
   color: #222;
   border-radius: 8px;
 }
+
+.quiz-question {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+
+.quiz-question label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.quiz-btn {
+  padding: 10px 18px;
+  margin: 10px 5px 0 0;
+  border-radius: 6px;
+  border: none;
+  background: #00e0ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quiz-btn.secondary {
+  background: transparent;
+  border: 1px solid #00e0ff;
+  color: white;
+}
+
+.quiz-result {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
 </style>
 
 <!-- ================= HEADER ================= -->
@@ -487,6 +521,12 @@ section.active {
     </li>
   </ul>
 </nav>
+
+<li>
+  <a href="#" onclick="showSection('kuiz'); return false;">
+    Uji Kefahaman
+  </a>
+</li>
 
 <!-- ================= MAIN CONTENT ================= -->
 <main>
@@ -1586,6 +1626,61 @@ section.active {
   </iframe>
 </section>
 
+<section id="kuiz" class="section">
+
+  <h2>🧠 Kuiz 3D Printer</h2>
+  <p>Jawab semua soalan dan tekan butang Semak Jawapan.</p>
+
+  <form id="quizForm" class="quiz-form">
+
+    <div class="quiz-question">
+      <p>1️⃣ Filament paling sesuai untuk sekolah ialah:</p>
+      <label><input type="radio" name="q1" value="a"> ABS</label>
+      <label><input type="radio" name="q1" value="b"> PLA</label>
+      <label><input type="radio" name="q1" value="c"> Nylon</label>
+    </div>
+
+    <div class="quiz-question">
+      <p>2️⃣ Format fail yang digunakan untuk cetakan 3D ialah:</p>
+      <label><input type="radio" name="q2" value="a"> .docx</label>
+      <label><input type="radio" name="q2" value="b"> .jpg</label>
+      <label><input type="radio" name="q2" value="c"> .stl</label>
+    </div>
+
+    <div class="quiz-question">
+      <p>3️⃣ Fungsi slicer ialah:</p>
+      <label><input type="radio" name="q3" value="a"> Menghasilkan G-Code</label>
+      <label><input type="radio" name="q3" value="b"> Menghias model</label>
+      <label><input type="radio" name="q3" value="c"> Mencipta printer</label>
+    </div>
+
+    <div class="quiz-question">
+      <p>4️⃣ Suhu nozzle PLA biasanya sekitar:</p>
+      <label><input type="radio" name="q4" value="a"> 50°C</label>
+      <label><input type="radio" name="q4" value="b"> 200°C</label>
+      <label><input type="radio" name="q4" value="c"> 500°C</label>
+    </div>
+
+    <div class="quiz-question">
+      <p>5️⃣ ABS memerlukan:</p>
+      <label><input type="radio" name="q5" value="a"> Enclosure</label>
+      <label><input type="radio" name="q5" value="b"> Air sejuk</label>
+      <label><input type="radio" name="q5" value="c"> Kipas besar</label>
+    </div>
+
+    <button type="button" onclick="semakKuiz()" class="quiz-btn">
+      ✅ Semak Jawapan
+    </button>
+
+    <button type="button" onclick="resetKuiz()" class="quiz-btn secondary">
+      🔄 Reset
+    </button>
+
+  </form>
+
+  <div id="quizResult" class="quiz-result"></div>
+
+</section>
 
 </main>
 
@@ -1668,6 +1763,46 @@ function showSection(sectionId) {
 
   // Scroll ke atas
   window.scrollTo(0, 0);
+}
+</script>
+
+<script>
+function semakKuiz() {
+
+  const jawapanBetul = {
+    q1: "b",
+    q2: "c",
+    q3: "a",
+    q4: "b",
+    q5: "a"
+  };
+
+  let markah = 0;
+
+  for (let soalan in jawapanBetul) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapanBetul[soalan]) {
+      markah++;
+    }
+  }
+
+  let mesej = "";
+
+  if (markah === 5) {
+    mesej = "🏆 Cemerlang! Anda benar-benar faham teknologi 3D Printer!";
+  } else if (markah >= 3) {
+    mesej = "👍 Baik! Teruskan ulang kaji sedikit lagi.";
+  } else {
+    mesej = "📘 Perlu ulang kaji semula bahagian tutorial.";
+  }
+
+  document.getElementById("quizResult").innerHTML =
+    `<h3>Markah Anda: ${markah}/5</h3><p>${mesej}</p>`;
+}
+
+function resetKuiz() {
+  document.getElementById("quizForm").reset();
+  document.getElementById("quizResult").innerHTML = "";
 }
 </script>
 </body>

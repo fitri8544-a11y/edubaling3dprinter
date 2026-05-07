@@ -34,24 +34,6 @@ body {
     linear-gradient(180deg, #03141a 0%, #06232c 50%, #021015 100%);
 }
 
-.hero-upgrade {
-  height: 80vh;
-  background: url("images/selamat-datang.png") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.hero-upgrade::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
 .hero-content {
   position: relative;
   text-align: center;
@@ -70,22 +52,6 @@ body {
 }
 
 /* ===== HOME HERO COMPACT ===== */
-
-.home-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 30px;
-  min-height: 50vh;      /* dari 75vh -> 60vh */
-  padding: 20px 0;       /* kecilkan padding */
-  color: white;
-}
-
-.home-left h1 {
-  font-size: 2.6rem;     /* kecil sedikit */
-  text-shadow: 0 0 15px cyan;
-  margin-bottom: 15px;
-}
 
 .hero-subtitle {
   font-size: 1.1rem;
@@ -113,11 +79,6 @@ body {
   background: transparent;
   border: 1px solid #00e0ff;
   color: white;
-}
-
-.hero-center {
-  position: relative;
-  z-index: 2;
 }
 
 /* ===== INTRO ===== */
@@ -170,72 +131,40 @@ body {
   margin: 6px 0;      /* lebih rapat */
 }
 
-/* ===== CENTER HERO ===== */
-
-.hero-center {
-  padding-top: 40px;
-  padding-bottom: 20px;
-}
+/* ===== FINAL HERO CENTER ===== */
 
 #home {
-  padding-bottom: 0;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px 40px;
 }
 
-.section {
-  padding: 40px 0;   /* kecilkan global spacing */
+.hero-center {
+  max-width: 900px;
+  margin: auto;
 }
 
-/* Tajuk Glow */
 .hero-title {
-  font-size: 3.2rem;
-  text-shadow: 0 0 25px #00e0ff;
+  font-size: 3rem;
   margin-bottom: 15px;
-}
-
-.hero-title span {
-  color: #00e0ff;
-  display: inline-block;
-  animation: glowText 2s infinite alternate;
-}
-
-@keyframes glowText {
-  from { text-shadow: 0 0 10px #00e0ff; }
-  to   { text-shadow: 0 0 30px #00ffff; }
+  text-shadow: 0 0 25px #00e0ff;
 }
 
 .hero-subtitle {
   font-size: 1.1rem;
   opacity: 0.9;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* Buttons */
-.hero-buttons button {
-  padding: 10px 18px;
-  margin: 0 6px;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
-  background: #00e0ff;
-  color: black;
-  font-weight: bold;
-  transition: 0.3s;
+.hero-buttons {
+  margin-bottom: 25px;
 }
 
-.hero-buttons button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 15px #00ffff;
-}
-
-.hero-buttons .secondary {
-  background: transparent;
-  border: 1px solid #00e0ff;
-  color: white;
-}
-
-/* Astronaut */
 .astronaut-wrapper {
-  margin-top: 30px;
+  margin-top: 15px;
   position: relative;
   display: inline-block;
 }
@@ -1325,12 +1254,10 @@ footer {
 
 </section>
 
-
-
 <!-- ================= HOME FUTURISTIC CENTER ================= -->
-<section id="home" class="section active">
+<section id="home" class="home-hero">
 
-  <div class="hero-center">
+  <div class="hero-content">
 
     <h1 class="hero-title">
       Portal 3D Printer Pendidikan
@@ -1344,12 +1271,12 @@ footer {
       <button onclick="showSection('tutorial')">
         📚 Mulakan Pembelajaran
       </button>
+
       <button onclick="showSection('filament-intro')" class="secondary">
         🧵 Kenali Filament
       </button>
     </div>
 
-    <!-- Astronaut 3D -->
     <div class="astronaut-wrapper">
       <model-viewer
         src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"

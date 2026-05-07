@@ -37,12 +37,12 @@ body {
 ===================================================== */
 
 #home {
-  min-height: 80vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 60px 20px 40px;
 }
 
 .hero-center {
@@ -122,7 +122,7 @@ body {
 
 .home-intro-center {
   max-width: 900px;
-  margin: 40px auto 0;
+  margin: 30px auto 0;
   padding: 0 20px;
   text-align: center;
   opacity: 0.85;
@@ -135,7 +135,7 @@ body {
 
 .section-title {
   text-align: center;
-  margin: 60px 0 25px;
+  margin: 40px 0 20px;
   font-size: 1.6rem;
   color: #00e0ff;
   text-shadow: 0 0 10px #00ffff;
@@ -148,7 +148,7 @@ body {
 
 .home-objectives {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40 auto;
   padding: 0 20px;
   text-align: center;
 }
@@ -186,7 +186,7 @@ body {
 
 .home-target {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 40px auto 30px;
   padding: 0 20px;
   text-align: center;
 }
@@ -238,6 +238,32 @@ footer {
   padding-top: 20px;
 }
 
+.footer-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+.scroll-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollLeft 15s linear infinite;
+  color: #00e0ff;
+  font-weight: 500;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.home-target {
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 20px;
+}
 </style>
 
 <!-- ================= HEADER ================= -->
@@ -1171,7 +1197,7 @@ footer {
         disable-zoom
         shadow-intensity="1"
         exposure="1"
-        style="width:260px; height:260px;">
+        style="width:220px; height:220px;">
       </model-viewer>
 
       <div class="hologram-ring"></div>

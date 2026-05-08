@@ -345,6 +345,81 @@ section.active {
   margin-top: 20px;
   font-size: 1.1rem;
 }
+
+/* ================= GAME FUTURISTIC ================= */
+
+.game-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 2rem;
+  text-shadow: 0 0 15px #00f7ff;
+}
+
+.game-subtitle {
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.game-box {
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #00f7ff;
+  background: rgba(0,255,255,0.05);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+.game-timer {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #00f7ff;
+}
+
+.game-answers {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.game-answers button {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #00f7ff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.game-answers button:hover {
+  background: #00f7ff;
+  color: black;
+  box-shadow: 0 0 15px #00f7ff;
+}
+
+.game-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00f7ff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.correct {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.wrong {
+  color: #ff4444;
+  text-shadow: 0 0 10px #ff4444;
+}
 </style>
 
 <!-- ================= HEADER ================= -->
@@ -529,7 +604,7 @@ section.active {
       </a>
     </li>
     <li>
-      <a href="#" onclick="showSection('game'); return false;">
+      <a href="#" onclick="showSection('game'); startGame(); return false;">
         🎮 Game 3D Challenge
       </a>
     </li>
@@ -1693,9 +1768,28 @@ section.active {
 
 </section>
 
-<section id="game" class="section">
-  <h2>🎮 Game 3D Challenge</h2>
-  <p>Game interaktif akan ditambah tidak lama lagi.</p>
+<section id="game" class="game-section section">
+
+  <h2 class="game-title">🎮 3D Printing Speed Challenge</h2>
+  <p class="game-subtitle">Jawab sebelum masa tamat!</p>
+
+  <div class="game-box">
+
+    <div class="game-timer">
+      ⏳ Masa: <span id="timeLeft">10</span>s
+    </div>
+
+    <h3 id="gameQuestion"></h3>
+
+    <div id="gameAnswers" class="game-answers"></div>
+
+    <div id="gameResult" style="display:none;">
+      <h3 id="gameResultText"></h3>
+      <button onclick="restartGame()" class="game-btn">Main Semula</button>
+    </div>
+
+  </div>
+
 </section>
 
 </main>
@@ -1819,6 +1913,145 @@ function semakKuiz() {
 function resetKuiz() {
   document.getElementById("quizForm").reset();
   document.getElementById("quizResult").innerHTML = "";
+}
+
+const gameData = [
+  {
+    question: "Suhu nozzle biasa untuk PLA?",
+    answers: ["50°C", "180–220°C", "300°C", "500°C"],
+    correct: 1
+  },
+  {
+    question: "Apakah fungsi bed leveling?",
+    answers: [
+      "Menyejukkan printer",
+      "Merapikan kabel",
+      "Pastikan cetakan melekat sekata",
+      "Mewarna filament"
+    ],
+    correct: 2
+  },
+  {
+    question: "Format fail untuk cetakan 3D ialah?",
+    answers: [".docx", ".stl", ".jpg", ".mp3"],
+    correct: 1
+  },
+  {
+    question: "Filament paling sesuai untuk sekolah?",
+    answers: ["ABS", "Nylon", "PLA", "Carbon Fiber"],
+    correct: 2
+  },
+  {
+    question: "Apakah fungsi slicer?",
+    answers: [
+      "Menghias model",
+      "Menjana G-Code",
+      "Membeli printer",
+      "Menyimpan gambar"
+    ],
+    correct: 1
+  }
+];
+
+let gameIndex = 0;
+let time = 10;
+let timer;
+let score = 0;
+
+function startGame() {
+  score = 0;
+  gameIndex = 0;
+  document.getElementById("gameResult").style.display = "none";
+  showGameQuestion();
+}
+
+function showGameQuestion() {
+  if (gameIndex >= gameData.length) {
+    endGame();
+    return;
+  }
+
+  time = 10;
+  document.getElementById("timeLeft").innerText = time;
+
+  const q = gameData[gameIndex];
+  document.getElementById("gameQuestion").innerText = q.question;
+
+  const answerBox = document.getElementById("gameAnswers");
+  answerBox.innerHTML = "";
+
+  q.answers.forEach((answer, index) => {
+    const btn = document.createElement("button");
+    btn.innerText = answer;
+    btn.onclick = () => selectGameAnswer(index);
+    answerBox.appendChild(btn);
+  });
+
+  startTimer();
+}
+
+function startTimer() {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    time--;
+    document.getElementById("timeLeft").innerText = time;
+
+    if (time <= 0) {
+      clearInterval(timer);
+      showWrong("⏰ Masa tamat!");
+    }
+  }, 1000);
+}
+
+function selectGameAnswer(index) {
+  clearInterval(timer);
+
+  const correctAnswer = gameData[gameIndex].correct;
+
+  if (index === correctAnswer) {
+    score++;
+    showCorrect("✅ Jawapan Betul!");
+  } else {
+    showWrong("❌ Jawapan Salah!");
+  }
+}
+
+function showCorrect(message) {
+  document.getElementById("gameQuestion").innerText = message;
+  setTimeout(() => {
+    gameIndex++;
+    showGameQuestion();
+  }, 1000);
+}
+
+function showWrong(message) {
+  document.getElementById("gameQuestion").innerText = message;
+  setTimeout(() => {
+    gameIndex++;
+    showGameQuestion();
+  }, 1000);
+}
+
+function endGame() {
+  document.getElementById("gameAnswers").innerHTML = "";
+  document.getElementById("gameQuestion").innerText = "";
+
+  let resultText = "";
+
+  if (score === gameData.length) {
+    resultText = "🏆 Cemerlang! Semua jawapan tepat!";
+  } else if (score >= 3) {
+    resultText = "👍 Baik! Markah: " + score + "/" + gameData.length;
+  } else {
+    resultText = "📘 Cuba lagi! Markah: " + score + "/" + gameData.length;
+  }
+
+  document.getElementById("gameResultText").innerText = resultText;
+  document.getElementById("gameResult").style.display = "block";
+}
+
+function restartGame() {
+  startGame();
 }
 </script>
 </body>
